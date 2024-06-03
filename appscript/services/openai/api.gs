@@ -1,11 +1,14 @@
 function ChatAPI(prompt, cellValue) {
   const apiKey = getApiKey();
+  
   if (!apiKey) {
     throw new Error('API key is missing. Please set the OPENAI_API_KEY in the script properties.');
   }
+
   if (!cellValue) {
     return "Error: Cell value is empty or invalid.";
   }
+
   const payload = {
     model: "gpt-3.5-turbo",
     messages: [
@@ -14,12 +17,14 @@ function ChatAPI(prompt, cellValue) {
     ],
     max_tokens: 100
   };
+
   const options = {
     method: "post",
     contentType: "application/json",
     headers: { "Authorization": "Bearer " + apiKey },
     payload: JSON.stringify(payload)
   };
+
   try {
     const response = UrlFetchApp.fetch("https://api.openai.com/v1/chat/completions", options);
     const json = JSON.parse(response.getContentText());
@@ -31,4 +36,9 @@ function ChatAPI(prompt, cellValue) {
   } catch (error) {
     return "Error: " + error.message;
   }
+}
+
+// Export the function for Node.js environment
+if (typeof exports !== 'undefined') {
+  exports.ChatAPI = ChatAPI;
 }

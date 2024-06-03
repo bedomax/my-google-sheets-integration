@@ -1,0 +1,16 @@
+{
+  "name": "my-google-sheets-integration",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "mocha"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.0",
+    "@babel/preset-env": "^7.14.0",
+    "@babel/register": "^7.14.0",
+    "@google/clasp": "^2.4.1",
+    "chai": "^4.3.4",
+    "dotenv": "^16.4.5",
+    "mocha": "^8.3.2"
+  }
+}

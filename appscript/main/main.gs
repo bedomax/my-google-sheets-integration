@@ -5,3 +5,7 @@ function useChatAPI(prompt, cellValue) {
     return "Error: " + error.message;
   }
 }
+
+if (typeof exports !== 'undefined') {
+  exports.useChatAPI = useChatAPI;
+}
